@@ -103,7 +103,7 @@ const firstName = "Anil";
 // const anil = [firstName, "Kunda", 2024 - 2002, "Developer", friends];
 // console.log(anil);
 
-// Exercise - Arrays BirthYear Cal
+// Exercise - Arrays BirthYear Calculator
 
 const calcAge5 = function (birthYear) {
   return 2025 - birthYear;
@@ -218,3 +218,25 @@ console.log(gagan.age);
 console.log(gagan.age);
 
 console.log(gagan.getSummary());
+
+// ------- ** Loops
+
+// Loops in JavaScript are control structures used to repeatedly execute a block of code as long as a specified condition is true.
+
+// ----- Iteration - The for loop
+
+// console.log("Lifting weights, repetition 1");
+// console.log("Lifting weights, repetition 2");
+// console.log("Lifting weights, repetition 3");
+// console.log("Lifting weights, repetition 4");
+// console.log("Lifting weights, repetition 5");
+
+// for loop keeps running while condition is true.
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`Hello ${i}`);
+}
+
+for (let rep = 1; rep <= 5; rep++) {
+  console.log(`Lifting weights, repetition ${rep}`);
+}
