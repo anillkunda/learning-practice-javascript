@@ -240,3 +240,50 @@ for (let i = 1; i <= 10; i++) {
 for (let rep = 1; rep <= 5; rep++) {
   console.log(`Lifting weights, repetition ${rep}`);
 }
+
+// ----- Looping arrays, breaking and continuing.
+
+const anil = [
+  "Anil",
+  "Kunda",
+  2024 - 2002,
+  "Developer",
+  ["Manoj", "Gagan", "Mallesh"],
+  true,
+];
+
+const types = [];
+
+for (let i = 0; i < anil.length; i++) {
+  // Reding from anil array
+  console.log(anil[i], typeof anil[i]);
+
+  // Filling types array
+  types[i] = typeof anil[i];
+  types.push(typeof anil[i]);
+}
+console.log(types);
+
+// Continue and Break - Only String
+for (let i = 0; i < anil.length; i++) {
+  if (typeof anil[i] !== "string") continue;
+
+  console.log(anil[i], typeof anil[i]);
+}
+
+// Break with Number
+for (let i = 0; i < anil.length; i++) {
+  if (typeof anil[i] === "number") break;
+
+  console.log(anil[i], typeof anil[i]);
+}
+
+// Exercise - Looping Arrays
+
+const yearsArray = [2000, 2002, 2004, 2006];
+const agesArray = [];
+
+for (let i = 0; i < yearsArray.length; i++) {
+  agesArray.push(2025 - yearsArray[i]);
+}
+console.log(agesArray);
