@@ -2,6 +2,7 @@
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
 
 document.querySelector('.number').textContent = secretNumber;
 
@@ -20,6 +21,11 @@ document.querySelector('.check').addEventListener('click', function () {
     // Manipulating CSS Style
     document.querySelector('body').style.background = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highScore').textContent = highScore;
+    }
 
     //  When guess is too high
   } else if (guess > secretNumber) {
