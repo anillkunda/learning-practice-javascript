@@ -214,3 +214,119 @@ console.log(gagan.age);
 console.log(gagan.age);
 
 console.log(gagan.getSummary());
+
+// ------- ** Loops
+
+// Loops in JavaScript are control structures used to repeatedly execute a block of code as long as a specified condition is true.
+
+// ----- Iteration - The for loop
+
+// console.log("Lifting weights, repetition 1");
+// console.log("Lifting weights, repetition 2");
+// console.log("Lifting weights, repetition 3");
+// console.log("Lifting weights, repetition 4");
+// console.log("Lifting weights, repetition 5");
+
+// for loop keeps running while condition is true.
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`Hello ${i}`);
+}
+
+for (let rep = 1; rep <= 5; rep++) {
+  console.log(`Lifting weights, repetition ${rep}`);
+}
+
+// ----- Looping arrays, breaking and continuing.
+
+const anil = [
+  'Anil',
+  'Kunda',
+  2024 - 2002,
+  'Developer',
+  ['Manoj', 'Gagan', 'Mallesh'],
+  true,
+];
+
+const types = [];
+
+for (let i = 0; i < anil.length; i++) {
+  // Reding from anil array
+  console.log(anil[i], typeof anil[i]);
+
+  // Filling types array
+  types[i] = typeof anil[i];
+  types.push(typeof anil[i]);
+}
+console.log(types);
+
+// Continue and Break - Only String
+for (let i = 0; i < anil.length; i++) {
+  if (typeof anil[i] !== 'string') continue;
+
+  console.log(anil[i], typeof anil[i]);
+}
+
+// Break with Number
+for (let i = 0; i < anil.length; i++) {
+  if (typeof anil[i] === 'number') break;
+
+  console.log(anil[i], typeof anil[i]);
+}
+
+// Exercise
+const yearsArray = [2000, 2002, 2004, 2006];
+const agesArray = [];
+
+for (let i = 0; i < yearsArray.length; i++) {
+  agesArray.push(2025 - yearsArray[i]);
+}
+console.log(agesArray);
+
+// ----- Looping Backwards and loops within loops.
+
+const anil2 = [
+  'Anil',
+  'Kunda',
+  2024 - 2002,
+  'Developer',
+  ['Manoj', 'Gagan', 'Mallesh'],
+];
+
+// 0, 1, ...., 4
+// 4, 3, ...., 0
+
+for (let i = anil2.length - 1; i >= 0; i--) {
+  console.log(i, anil2[i]);
+}
+
+// ----- Loops in Loops
+
+for (let exercise = 1; exercise < 3; exercise++) {
+  console.log(`--Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
+  }
+}
+
+// ----- The While Loop
+
+for (let rep = 1; rep <= 5; rep++) {
+  console.log(`Lifting weights repetion ${rep}`);
+}
+
+let rep = 1;
+while (rep <= 7) {
+  console.log(`Lifting weights repetion ${rep}`);
+  rep++;
+}
+
+// Dice
+let dice = Math.trunc(Math.random() * 6 + 1);
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log('Loop is about to end...');
+}
