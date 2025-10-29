@@ -36,3 +36,57 @@ const firstName = 'Anil'; // Outer firstName (this won't affect inner firstName 
 const age = calcAge(1991);
 console.log(age); // Logs the age returned from calcAge
 // printAge();  // This would cause an error because printAge is not in the global scope
+
+// -------** Hoisting and TDZ in Practice
+
+// ----- VARIABLES
+console.log(me); // Works → undefined (because 'var' declarations are hoisted with value undefined)
+// console.log(job); // ReferenceError (in TDZ)
+// console.log(year); // ReferenceError (in TDZ)
+
+var me = 'Anil';
+let job = 'Software Developer';
+const year = 2002;
+
+// ----- FUNCTIONS
+console.log(addDecl(2, 3)); // Works → 5 (function declarations are hoisted with their definition)
+// console.log(addExpr(2, 3)); // ReferenceError (in TDZ for const)
+// console.log(addArrow(2, 3)); // TypeError (addArrow is undefined at this point)
+console.log(addArrow); // Works → undefined (var is hoisted, initialized as undefined)
+
+// ----- Function declaration
+function addDecl(a, b) {
+  return a + b;
+}
+
+// ----- Function expression
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+// ----- Arrow function assigned to a var
+var addArrow = (a, b) => a + b;
+
+// ----- EXAMPLE: Hoisting pitfalls with var
+console.log(undefined);
+if (!numProducts) deleteShoppingCart(); // Will run → numProducts is undefined (var hoisted)
+// Because 'var numProducts' is hoisted and initialized as undefined, the condition is true,
+// so deleteShoppingCart() runs even though numProducts is declared later.
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+// ----- GLOBAL VARIABLES (window/globalThis check)
+var x = 1;
+let y = 2;
+const z = 3;
+
+// On browsers:
+// window.x === 1 because 'var' creates a property on the global object
+// but 'let' and 'const' do NOT.
+console.log(x === window.x); // true
+console.log(y === window.y); // false
+console.log(z === window.z); // false
