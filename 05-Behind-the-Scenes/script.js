@@ -126,3 +126,40 @@ matilda.calcAge(); // this -> matilda
 const f = anilObj.calcAge.bind(anilObj);
 f(); // this -> undefined in strict mode
 anilObj.calcAge();
+
+// -------** Regular Functions vs. Arrow Functions
+
+const anil2 = {
+  firstName: 'Anil',
+  year: 1991,
+  calcAge: function () {
+    console.log(2037 - this.year);
+
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+
+  greet: function () {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+anil2.greet();
+anil2.calcAge();
+
+// arguments keyword
+const addExpr2 = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr2(2, 5);
+addExpr2(2, 5, 8, 12);
+
+const addArrow2 = (...args) => {
+  console.log(args);
+  return args[0] + args[1];
+};
+addArrow2(2, 5, 8);
