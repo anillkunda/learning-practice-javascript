@@ -90,3 +90,39 @@ const z = 3;
 console.log(x === window.x); // true
 console.log(y === window.y); // false
 console.log(z === window.z); // false
+
+// -------** The this Keyword in Practice
+
+console.log(this); // global object (window in browser)
+
+const calcAgeFn = function (birthYear) {
+  console.log(2025 - birthYear);
+  console.log(this); // undefined in strict mode
+};
+calcAgeFn(2002);
+
+const calcAgeArrowFn = (birthYear) => {
+  console.log(2027 - birthYear);
+  console.log(this); // inherits this from lexical scope (global)
+};
+calcAgeArrowFn(2003);
+
+const anilObj = {
+  year: 2002,
+  calcAge: function () {
+    console.log(this); // jonasObj
+    console.log(2025 - this.year);
+  },
+};
+anilObj.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+matilda.calcAge = anilObj.calcAge;
+matilda.calcAge(); // this -> matilda
+
+// const f = anilObj.calcAge;
+const f = anilObj.calcAge.bind(anilObj);
+f(); // this -> undefined in strict mode
+anilObj.calcAge();
